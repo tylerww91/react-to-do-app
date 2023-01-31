@@ -8,5 +8,11 @@ export default function Todos() {
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
-  return <div>Todos</div>;
+  return (
+    <div>
+      <h2>Todos</h2>
+      <div></div>
+      <div></div>
+    </div>
+  );
 }
