@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { createContext } from 'react';
 import { getUser } from '../services/auth.js';
 
 // create user provider!
-const UserContext = createContext;
+const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
   const currentUser = getUser();
-  const [user, setUser] = useEffect(currentUser);
+  const [user, setUser] = useState(currentUser);
 
   return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
 };
