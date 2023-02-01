@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useUser } from '../../context/UserContext.js';
+import TodosForm from './TodosForm.js';
 
 export default function Todos() {
   const { user } = useUser();
@@ -11,7 +12,7 @@ export default function Todos() {
   return (
     <div>
       <h2>Todos</h2>
-      <div></div>
+      <TodosForm />
       <div></div>
     </div>
   );
