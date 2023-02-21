@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
-import { TodosContext } from '../../context/TodosContext.js';
+import React, { useState } from 'react';
+import { useTodo } from '../../context/TodosContext.js';
 import { createTodo } from '../../services/todos.js';
 
 export default function TodosForm() {
   const [description, setDesc] = useState('');
-  const { setTodos } = useContext(TodosContext);
+  const { setTodos } = useTodo();
   const handleNewTodo = async () => {
     try {
       const todo = await createTodo(description);
