@@ -1,4 +1,4 @@
-import { createContext, useEffect } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { getTodos } from '../services/todos.js';
 
@@ -20,4 +20,13 @@ const TodosProvider = ({ children }) => {
   return <TodosContext.Provider value={{ todos, setTodos }}>{children}</TodosContext.Provider>;
 };
 
-export { TodosContext, TodosProvider };
+const useTodo = () => {
+  const data = useContext(TodosContext);
+
+  if (!data) {
+    throw new Error('useTodo must be wrapped in a TodoProvider');
+  }
+  return data;
+};
+
+export { TodosContext, TodosProvider, useTodo };
